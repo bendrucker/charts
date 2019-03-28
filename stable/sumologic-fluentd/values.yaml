@@ -167,15 +167,15 @@ sumologic:
   ## ref: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/
   auditLogPath: ""
 
-## Note: Requires Kubernetes 1.8+ to enable this feature via hostPath volume type
-## By default, the daemonset will store position files, for logs tailed, in an
-## emptyDir. If you have already have a directory on the host for storing pos files,
-## specify it here. Otherwise, it can create the directory for you by setting the type
-## to "DirectoryOrCreate".
+## Note: Requires Kubernetes 1.8+
+## If disabled, the daemonset will store position files in an emptyDir, persisting across
+## container restarts. If you have already have a directory on the host for storing pos files,
+## specify it here and set createPath: false. Otherwise, the volume will be set to type
+## "DirectoryOrCreate".
 persistence:
-  enabled: false
+  enabled: true
   hostPath: /var/run/fluentd-pos
-  createPath: false
+  createPath: true
 
 resources:
   requests:
