@@ -177,6 +177,9 @@ persistence:
   hostPath: /var/run/fluentd-pos
   createPath: false
 
+metrics:
+  hostPort: false
+
 resources:
   requests:
     cpu: 100m

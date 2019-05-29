@@ -103,6 +103,7 @@ The following table lists the configurable parameters of the sumologic-fluentd c
 | `persistence.enabled` | Boolean value, used to turn on or off fluentd position file persistence, on nodes (requires Kubernetes >= 1.8) | `false` |
 | `persistence.hostPath` | The path, on each node, to a directory for fluentd pos files. You must create the directory on each node first or set `persistence.createPath` (requires Kubernetes >= 1.8) | `/var/run/fluentd-pos` |
 | `persistence.createPath` | Whether to create the directory on the host for you (requires Kubernetes >= 1.8) | `false` |
+| `metrics.hostPort` | Exposes metrics from [`monitor_agent`](https://docs.fluentd.org/input/monitor_agent) on port `24220` on the host | `false` |
 | `resources.requests.cpu` | CPU resource requests | 100m |
 | `resources.limits.cpu` | CPU resource limits | 256m |
 | `resources.requests.memory` | Memory resource requests | 128Mi |

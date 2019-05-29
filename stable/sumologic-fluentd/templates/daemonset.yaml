@@ -28,6 +28,13 @@ spec:
         - name: {{ template "sumologic-fluentd.fullname" . }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{.Values.image.pullPolicy}}
+          ports:
+            - containerPort: 24220
+              {{- if .Values.metrics.hostPort }}
+              hostPort: 24220
+              {{- end }}
+              name: monitor_agent
+              protocol: TCP
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           volumeMounts:
